@@ -35,16 +35,5 @@ python generate_risk_labels.py \
   --brats-version 2025
 ~~~
 
-For BraTS 2020, use `--brats-version 2020`, its corresponding segmentation, and its FLAIR image. The saved label map retains the segmentation NIfTI's affine transform and uses the original pipeline's float32 output convention.
+The saved label map retains the segmentation NIfTI's affine transform and uses the original pipeline's float32 output convention.
 
-## Verification
-
-~~~bash
-python -m unittest discover -s tests -v
-~~~
-
-The tests compare the BraTS 2025 output against a separate transcription of the supplied experimental rule on synthetic inputs, check exact 10-mm and 20-mm boundaries, the edema/tumor-core handling, and the 2020 enhancing-label conversion. Tests are synthetic implementation checks, not a patient-level validation of the published results.
-
-## Source and citation
-
-The algorithm is derived from the author's provided `data_pipeline_brats2025.py` and `config_brats2025.py`. Please cite the InfiltrNet manuscript when referring to this surrogate label definition.
